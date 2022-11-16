@@ -16,7 +16,7 @@ namespace SpaceInvaders_dylanMartins
             // Create options that you want your menu to have
             options = new List<Option>
             {
-                new Option("Start", () => WriteTemporaryMessage("option")),
+                new Option("Start", () => WriteTemporaryMessage("Start")),
                 new Option("option", () =>  WriteTemporaryMessage("option")),
                 new Option("help", () =>  WriteTemporaryMessage("help")),
                 new Option("Exit", () => Environment.Exit(0)),

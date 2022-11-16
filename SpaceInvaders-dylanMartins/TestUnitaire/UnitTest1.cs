@@ -1,8 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using pu17alr_Student;
-
-namespace test_unitaire
+namespace TestUnitaire
 {
     [TestClass]
     public class UnitTest1
@@ -10,7 +6,6 @@ namespace test_unitaire
         [TestMethod]
         public void TestMethod1()
         {
-
         }
     }
 }
