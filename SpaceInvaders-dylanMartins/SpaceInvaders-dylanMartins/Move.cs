@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceInvaders_dylanMartins
 {
-    public class Bunker
+    internal class Move
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceInvaders_dylanMartins
 {
-    internal class Ennemy
+    internal class Enemy
     {
     }
 }
