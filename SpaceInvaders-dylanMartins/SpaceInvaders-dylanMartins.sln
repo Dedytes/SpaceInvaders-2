@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceInvaders-dylanMartins", "SpaceInvaders-dylanMartins\SpaceInvaders-dylanMartins.csproj", "{861670F9-D25A-4810-B5BC-F356069DE991}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-SpaceInvaders", "Unit Test\test-SpaceInvaders.csproj", "{03F7EBEB-6CD2-4CE9-AAA6-C20B5BF5C9A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{861670F9-D25A-4810-B5BC-F356069DE991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861670F9-D25A-4810-B5BC-F356069DE991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861670F9-D25A-4810-B5BC-F356069DE991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03F7EBEB-6CD2-4CE9-AAA6-C20B5BF5C9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03F7EBEB-6CD2-4CE9-AAA6-C20B5BF5C9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03F7EBEB-6CD2-4CE9-AAA6-C20B5BF5C9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03F7EBEB-6CD2-4CE9-AAA6-C20B5BF5C9A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
