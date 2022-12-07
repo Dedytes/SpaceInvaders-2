@@ -9,7 +9,7 @@ using SpaceInvaders_dylanMartins;
 using System;
 using System.Collections.Generic;
 
-namespace SpicyInvader
+namespace SpaceInvaders_dylanMartins
 {
     /// <summary>
     /// Main code of the space invader game
