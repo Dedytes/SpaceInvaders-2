@@ -52,6 +52,14 @@ namespace SpaceInvaders_dylanMartins
         /// </summary>
         public Missile MissilePlayer { get; set; }          
 
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        /// <param name="shipX">La position du vaisseau latéral</param>
+        /// <param name="shipY">La position du vaissaeau vertical</param>
+        /// <param name="soundGame"> le son du jeu</param>
+        /// <param name="posXBunker">position du bunker</param>
+        /// <param name="enemies"> les ennemis</param>
          public PlayerShip(int shipX, int shipY, bool soundGame, List<int> posXBunker, Enemy[] enemies)
         {
             ShipForm = "├─┴─┤";
