@@ -56,7 +56,7 @@ namespace SpaceInvaders_dylanMartins
                     NewGame.GameStarted();
                     Console.Clear();
 
-                    // Enter the name of the player and him score
+                    // Entrez le nom du joueur et lui marque
                     Console.WindowWidth = 41;
                     Console.WindowHeight = 20;
                     Console.ForegroundColor = ConsoleColor.Green;

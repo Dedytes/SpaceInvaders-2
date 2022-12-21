@@ -26,7 +26,7 @@ namespace SpaceInvaders_dylanMartins
         /// <summary>
         /// Définition de la propriété ShipForm, La forme du vaisseau du joueur
         /// </summary>
-        public string ShipForm { get; }
+        public string ShipForm { get; } 
 
         /// <summary>
         /// Définition de la propriété ShipX, La position latérale du navire
@@ -51,7 +51,7 @@ namespace SpaceInvaders_dylanMartins
         /// <summary>
         /// Définition de la pré-propriété MissilePlayer, Créer un missile
         /// </summary>
-        public Missile MissilePlayer { get; set; }          
+        public Missile MissilePlayer { get; set; }
 
         /// <summary>
         /// Constructeur
@@ -61,7 +61,7 @@ namespace SpaceInvaders_dylanMartins
         /// <param name="soundGame"> le son du jeu</param>
         /// <param name="posXBunker">position du bunker</param>
         /// <param name="enemies"> les ennemis</param>
-         public PlayerShip(int shipX, int shipY, bool soundGame, List<int> posXBunker, Enemy[] enemies)
+        public PlayerShip(int shipX, int shipY, bool soundGame, List<int> posXBunker, Enemy[] enemies)
         {
             ShipForm = "├─┴─┤";
             this.ShipX = shipX;
@@ -72,6 +72,114 @@ namespace SpaceInvaders_dylanMartins
             this.Score = 0;
             this.MissilePlayer = new Missile(ShipX, ShipY, false, posXBunker, _enemies, this);
         }
-        
+
+        [DllImport("User32.dll")]                       // Importer le User32.dll
+        static extern short GetAsyncKeyState(int key);  // touche du clavier enfoncée
+        public void ShipAction(Move move)
+        {
+            _over = false;
+            short GetAsyncKeyStateResult = GetAsyncKeyState(32); // Result of the keyboard key pressed
+            do
+            {
+                // Si le résultat de la touche du clavier enfoncée est positif et qu'il est égal à la touche fléchée gauche
+                if ((GetAsyncKeyStateResult & 0x8000) > 0 && GetAsyncKeyStateResult == GetAsyncKeyState(37))
+                {
+                    // Si le jeu n'est pas en pause
+                    if (_gamePause == false)
+                    {
+                        // Si la position latérale ne touche pas le bord gauche de la fenêtre
+                        if (ShipX != Console.WindowLeft)
+                        {
+                            ShipX--;
+                            Console.MoveBufferArea(ShipX + 1, ShipY, ShipForm.Length, 1, ShipX, ShipY); // Move the ship to the left
+                        }
+                        // Sinon ne rien faire 
+                        else { }
+                        System.Threading.Thread.Sleep(_SHIPSPEED);
+                    }
+                }
+                // Sinon si le résultat de la touche du clavier enfoncée est positif et qu'il est égal à la touche fléchée droite
+                else if ((GetAsyncKeyStateResult & 0x8000) > 0 && GetAsyncKeyStateResult == GetAsyncKeyState(39))
+                {
+                    // Si le jeu n'est pas en pause
+                    if (_gamePause == false)
+                    {
+                        // Si la position latérale plus la longueur du navire ne touchent pas le bord droit de la fenêtre
+                        if (ShipX + ShipForm.Length != Console.WindowWidth)
+                        {
+                            ShipX++;
+                            Console.MoveBufferArea(ShipX - 1, ShipY, ShipForm.Length, 1, ShipX, ShipY); // Move the ship to the right
+                        }
+                        // Sinon ne rien faire
+                        else { }
+                        System.Threading.Thread.Sleep(_SHIPSPEED);
+                    }
+                }
+                // Si une touche est enfoncée
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true); // Lire la touche enfoncée
+                    // Si la touche enfoncée est la flèche gauche
+                    if (key.Key == ConsoleKey.LeftArrow)
+                    {
+                        GetAsyncKeyStateResult = GetAsyncKeyState(37); // Initialiser le GetAsynKeyState dans la flèche gauche
+                    }
+                    // Si la touche enfoncée est la flèche droite
+                    else if (key.Key == ConsoleKey.RightArrow)
+                    {
+                        GetAsyncKeyStateResult = GetAsyncKeyState(39); // Initialiser le GetAsynKeyState dans la flèche droite
+                    }
+                    // Si la touche enfoncée est la barre d'espace
+                    else if (key.Key == ConsoleKey.Spacebar)
+                    {
+                        // Vérifier si un missile est déjà lancé
+                        if (MissilePlayer.MissileLive == false)
+                        {
+                            MissilePlayer.MissileLive = true;
+                            // Repositionner l'emplacement du missile
+                            MissilePlayer.MissileY = ShipY - 1;
+                            MissilePlayer.MissileX = ShipX + (ShipForm.Length / 2);
+                            MissilePlayer.MissilePlayerCreate();
+                        }
+                    }
+                    // Si la touche enfoncée est le P ou échappement
+                    else if (key.Key == ConsoleKey.P || key.Key == ConsoleKey.Escape)
+                    {
+                        // Le jeu est en pause
+                        _gamePause = !_gamePause;
+                        MissilePlayer.StopShoot(_gamePause);
+                        move.StopMove(_gamePause);
+                        foreach (Enemy x in _enemies)
+                        {
+                            if (x != null)
+                            {
+                                x.StopShoot(_gamePause);
+                            }
+                        }
+                    }
+                }
+                // si le joueur est mort, la partie est terminée
+                if (ShipLife == 0)
+                {
+                    _over = true;
+                }
+                byte i = 0;
+                foreach (Enemy x in _enemies)
+                {
+                    if (x != null)
+                    {
+                        i++;
+                    }
+                }
+                // s'il n'y a plus d'ennemis le jeu est terminé mais il redémarre aussitôt
+                if (i == 0)
+                {
+                    _over = true;
+                }
+                i = 0;
+            }
+            while (_over == false);
+            MissilePlayer.StopShoot(_gamePause);
+        }
     }
 }

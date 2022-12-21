@@ -2,7 +2,7 @@
  *  Auteur : Dylan Martins
  *  Date : 10.12.22
  *  Lieu : ETML
- *  Description : Code principal du jeu Space invader
+ *  Description : Code principal du jeu Space Invader
  */
 
 

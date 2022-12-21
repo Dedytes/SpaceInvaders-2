@@ -178,7 +178,7 @@ namespace SpaceInvaders_dylanMartins
                         // Accélérer le navire
                         if (_enemies[i].EnemyY == 3)
                         {
-                            _upDown = !_upDown;
+                            _upDown = !_upDown; 
                         }
                     }
 
@@ -235,6 +235,17 @@ namespace SpaceInvaders_dylanMartins
                         }
                     }
                 }
+            }
+        }
+        public void StopMove(bool pause)
+        {
+            if (pause == true)
+            {
+                _enemyMovement.Stop();
+            }
+            else
+            {
+                _enemyMovement.Start();
             }
         }
     }
