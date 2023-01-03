@@ -56,7 +56,7 @@ namespace SpaceInvaders_dylanMartins
                     NewGame.GameStarted();
                     Console.Clear();
 
-                    // Entrez le nom du joueur et lui marque
+                    // Enter the name of the player and him score
                     Console.WindowWidth = 41;
                     Console.WindowHeight = 20;
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -94,7 +94,7 @@ namespace SpaceInvaders_dylanMartins
         static byte Show()
         {
             #region Properties            
-            bool main = true ;      // Boucle while pour choisir l'option.
+            bool main = true;      // Boucle while pour choisir l'option.
             ConsoleKeyInfo keyInfo; // Vérifie la touche que le joueur a touché.
             byte cursorY = 4;       // La position verticale du curseur
             char cursor = '>';      // La forme du curseur
@@ -279,7 +279,7 @@ namespace SpaceInvaders_dylanMartins
 
                         Console.SetCursorPosition(middle.Length + 8, cursorY);
                         //je mets en attendant difficulty parce que j'ai pas encore faire le son
-                        if(difficulty)
+                        if (difficulty)
                         {
                             Console.Write("ON ");
                         }

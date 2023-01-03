@@ -24,7 +24,7 @@ namespace SpaceInvaders_dylanMartins
         private Random _shoot = new Random();
 
         // Boucle pour tirer un missile
-        private Timer _enemyShooting = new Timer(250);                      
+        private Timer _enemyShooting = new Timer(250);
         #endregion
 
         #region Getter - Setter
@@ -67,7 +67,7 @@ namespace SpaceInvaders_dylanMartins
         /// <summary>
         /// Définition de la propriété de difficulté, Choisir la difficulté
         /// </summary>
-        public bool Difficulty { get; }                                     
+        public bool Difficulty { get; }
         #endregion
 
         #region Method
@@ -81,12 +81,11 @@ namespace SpaceInvaders_dylanMartins
         /// <param name="posXBunker">Position du bunker</param>
         /// <param name="player">Le vaisseau du joueur</param>
         /// <param name="difficulty">Choisissez la difficulté</param>.
-        public Enemy(int enemyX, int enemyY, bool soundGame, bool enemyDirection, List<int> posXBunker, PlayerShip player, bool difficulty)
+        public Enemy(int enemyX, int enemyY, bool enemyDirection, List<int> posXBunker, PlayerShip player, bool difficulty)
         {
             ShipForm = "■─▬─■";
             this.EnemyX = enemyX;
             this.EnemyY = enemyY;
-            this.SoundGame = soundGame;
             this.EnemyDirection = enemyDirection;
             this.Difficulty = difficulty;
             this.MissileEnemy = new Missile(EnemyX, EnemyY, posXBunker, player);

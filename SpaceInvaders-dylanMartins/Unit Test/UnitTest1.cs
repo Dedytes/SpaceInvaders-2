@@ -17,8 +17,8 @@ namespace SpaceInvaders_dylanMartins
             // Organiser
             List<int> posXBunker = new List<int>();
             Enemy[] enemies = new Enemy[20];
-            PlayerShip player = new PlayerShip(1, 20, false, posXBunker, enemies);
-            Enemy enemy = new Enemy(1, 10, false, true, posXBunker, player, false);
+            PlayerShip player = new PlayerShip(1, 20, posXBunker, enemies);
+            Enemy enemy = new Enemy(1, 10, true, posXBunker, player, false);
 
 
             // Acte
@@ -48,8 +48,8 @@ namespace SpaceInvaders_dylanMartins
             // Organiser
             List<int> posXBunker = new List<int>();
             Enemy[] enemies = new Enemy[20];
-            PlayerShip player = new PlayerShip(2, 20, false, posXBunker, enemies);
-            Enemy enemy = new Enemy(1, 10, false, true, posXBunker, player, false);
+            PlayerShip player = new PlayerShip(2, 20, posXBunker, enemies);
+            Enemy enemy = new Enemy(1, 10, true, posXBunker, player, false);
 
 
             // Act
@@ -82,8 +82,8 @@ namespace SpaceInvaders_dylanMartins
             // Arrange
             List<int> posXBunker = new List<int>();
             Enemy[] enemies = new Enemy[20];
-            PlayerShip player = new PlayerShip(1, 20, false, posXBunker, enemies);
-            Enemy enemy = new Enemy(1, 10, false, true, posXBunker, player, false);
+            PlayerShip player = new PlayerShip(1, 20, posXBunker, enemies);
+            Enemy enemy = new Enemy(1, 10, true, posXBunker, player, false);
             player.ShipLife = 3;
 
             // Act

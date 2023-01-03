@@ -19,7 +19,7 @@ namespace SpaceInvaders_dylanMartins
     {
         #region Properties
         //Properties
-        private string _missileShap = "|";              // The shape of the missile
+        private string _missileShap = "|";              // La patterne du missile
         private Timer _shootEnemy = new Timer(50);      // Boucle pour abaisser les missiles ennemis
         private Timer _shootPlayer = new Timer(50);     // Boucle pour abaisser les missiles du joueur
         private List<int> _posXBunker;                  // Postition du bunker
@@ -108,7 +108,7 @@ namespace SpaceInvaders_dylanMartins
             // Positionner le curseur à l'emplacement du missile
             Console.SetCursorPosition(MissileX, MissileY);
             // Créer le missile
-            Console.Write(_missileShap);                    
+            Console.Write(_missileShap);
             _shootPlayer.Start();
         }
 
